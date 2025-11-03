@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="360" viewBox="0 0 640 360">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto">
+      <polygon points="0,0 8,4 0,8" fill="#333" />
+    </marker>
+  </defs>
+  <rect width="640" height="360" fill="#fff" />
+  <text x="20" y="34" font-size="20" font-family="Arial" fill="#111">看跌吞没（高位偏空）</text>
+
+  <!-- 前一根小阳 -->
+  <line x1="240" y1="90" x2="240" y2="270" stroke="#444" stroke-width="2" />
+  <rect x="225" y="170" width="30" height="40" fill="#12b886" stroke="#0b8c66" stroke-width="2" />
+
+  <!-- 后一根大阴（吞没前一根实体） -->
+  <line x1="340" y1="70" x2="340" y2="300" stroke="#444" stroke-width="3" />
+  <rect x="310" y="130" width="60" height="120" fill="#e03131" stroke="#b02525" stroke-width="2" />
+
+  <!-- 吞没说明箭头 -->
+  <line x1="280" y1="220" x2="300" y2="240" stroke="#333" marker-end="url(#arrow)" />
+  <text x="200" y="255" font-size="14" fill="#111">后一根实体完全包住前一根</text>
+
+  <!-- 量能示意 -->
+  <rect x="225" y="310" width="30" height="18" fill="#bbb" />
+  <rect x="310" y="300" width="60" height="30" fill="#888" />
+  <text x="20" y="347" font-size="12" fill="#666">量能：放量更可靠；做空常取跌破吞没低点，止损置于高点上。</text>
+</svg>
+
+

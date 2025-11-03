@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="420" viewBox="0 0 720 420">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto">
+      <polygon points="0,0 8,4 0,8" fill="#333" />
+    </marker>
+  </defs>
+  <rect width="720" height="420" fill="#fff" />
+  <text x="20" y="34" font-size="20" font-family="Arial" fill="#111">均线回踩确认（MA20示意）</text>
+
+  <!-- MA20 曲线（简化） -->
+  <path d="M100,260 C160,220 220,210 280,200 C340,190 400,180 460,190 C520,200 580,220 640,230" fill="none" stroke="#2f9e44" stroke-width="3" />
+  <text x="645" y="235" font-size="12" fill="#2f9e44">MA20</text>
+
+  <!-- 上涨-回踩-再启 K线（简化） -->
+  <rect x="180" y="210" width="20" height="50" fill="#12b886" />
+  <rect x="210" y="200" width="20" height="60" fill="#12b886" />
+  <rect x="240" y="220" width="20" height="40" fill="#e03131" />
+  <rect x="270" y="205" width="20" height="45" fill="#12b886" />
+  <rect x="300" y="195" width="20" height="50" fill="#12b886" />
+
+  <!-- 箭头与标注 -->
+  <line x1="250" y1="235" x2="285" y2="225" stroke="#333" marker-end="url(#arrow)" />
+  <text x="290" y="223" font-size="14" fill="#111">回踩MA20不破</text>
+  <line x1="305" y1="195" x2="350" y2="175" stroke="#333" marker-end="url(#arrow)" />
+  <text x="355" y="173" font-size="14" fill="#111">再启上攻</text>
+
+  <text x="20" y="405" font-size="12" fill="#666">用法：趋势中突破后第一次回踩均线确认；止损：跌破均线且收盘下方；目标：前高/通道上沿。</text>
+</svg>
+
+

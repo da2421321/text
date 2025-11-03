@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#f7f9fc"/>
+    </linearGradient>
+    <style>
+      .title { font: 700 32px 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif; fill: #0f172a; }
+      .subtitle { font: 500 16px 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif; fill: #475569; }
+      .box-title { font: 700 20px 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif; }
+      .item { font: 15px 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif; fill: #0f172a; }
+      .note { font: 12px 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif; fill: #64748b; }
+    </style>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L12,6 L0,12 z" fill="#94a3b8"/>
+    </marker>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#0f172a" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect x="0" y="0" width="1200" height="800" fill="url(#bgGrad)"/>
+
+  <!-- Title -->
+  <text class="title" x="600" y="70" text-anchor="middle">趋势为主 · 量价为辅</text>
+  <text class="subtitle" x="600" y="100" text-anchor="middle">先定方向（趋势），再看配合（量价）；以结构和风控为准绳</text>
+
+  <!-- Box: 趋势判断 -->
+  <g filter="url(#shadow)">
+    <rect x="80" y="130" rx="16" ry="16" width="460" height="210" fill="#E8F5E9" stroke="#2E7D32" stroke-width="2"/>
+    <text class="box-title" x="110" y="165" fill="#2E7D32">趋势判断（主）</text>
+    <g class="item" fill="#0f172a">
+      <text x="110" y="200">• 结构：上升看 HH/HL，下降看 LL/LH</text>
+      <text x="110" y="228">• 均线：价格在 20/60 上且斜率向上</text>
+      <text x="110" y="256">• 趋势线：多次验证的有效支撑/压力</text>
+      <text x="110" y="284">• 多周期：周/日/小时同向共振更优</text>
+    </g>
+  </g>
+
+  <!-- Box: 量价配合 -->
+  <g filter="url(#shadow)">
+    <rect x="660" y="130" rx="16" ry="16" width="460" height="210" fill="#E3F2FD" stroke="#1565C0" stroke-width="2"/>
+    <text class="box-title" x="690" y="165" fill="#1565C0">量价配合（辅）</text>
+    <g class="item">
+      <text x="690" y="200">• 放量突破：有效性更强，失败率更低</text>
+      <text x="690" y="228">• 缩量回撤：健康回踩，不破关键位</text>
+      <text x="690" y="256">• 背离预警：价强量弱/价弱量增需谨慎</text>
+      <text x="690" y="284">• 关键区：平台前高/均线/趋势线附近</text>
+    </g>
+  </g>
+
+  <!-- Box: 进出场规则 -->
+  <g filter="url(#shadow)">
+    <rect x="80" y="390" rx="16" ry="16" width="460" height="180" fill="#FFF3E0" stroke="#EF6C00" stroke-width="2"/>
+    <text class="box-title" x="110" y="425" fill="#EF6C00">进出场规则</text>
+    <g class="item">
+      <text x="110" y="460">• 入场：顺势回撤缩量止跌，或放量突破</text>
+      <text x="110" y="488">• 加仓：放量越过前高/平台</text>
+      <text x="110" y="516">• 出场：破结构点/趋势线，或放量大阴</text>
+    </g>
+  </g>
+
+  <!-- Box: 风险控制 -->
+  <g filter="url(#shadow)">
+    <rect x="660" y="390" rx="16" ry="16" width="460" height="180" fill="#FCE4EC" stroke="#AD1457" stroke-width="2"/>
+    <text class="box-title" x="690" y="425" fill="#AD1457">风险控制</text>
+    <g class="item">
+      <text x="690" y="460">• 止损：结构点外（前低/趋势线下）</text>
+      <text x="690" y="488">• 仓位：单笔亏损 ≤ 1%-2%</text>
+      <text x="690" y="516">• 目标：盈亏比 ≥ 1:2，分批进出</text>
+    </g>
+  </g>
+
+  <!-- Arrows -->
+  <g stroke="#94a3b8" stroke-width="2" fill="none" marker-end="url(#arrow)">
+    <!-- 主 → 进出场 -->
+    <path d="M540 235 C 600 235, 620 430, 540 480"/>
+    <!-- 辅 → 进出场 -->
+    <path d="M660 235 C 600 235, 580 430, 660 480"/>
+    <!-- 主 → 风控 -->
+    <path d="M540 260 C 670 260, 640 440, 660 450"/>
+    <!-- 辅 → 风控 -->
+    <path d="M1120 235 C 1120 320, 930 390, 890 410"/>
+  </g>
+
+  <!-- Mini illustration: 简化K线与成交量 -->
+  <g transform="translate(80,600)">
+    <text class="subtitle" x="0" y="-10">示意：上升趋势中“缩量回撤 + 放量突破”</text>
+    <!-- Baseline -->
+    <line x1="0" y1="0" x2="460" y2="0" stroke="#e2e8f0"/>
+    <!-- Candles (simplified) -->
+    <g>
+      <!-- up candles -->
+      <rect x="20" y="-40" width="10" height="40" fill="#22c55e"/>
+      <rect x="60" y="-65" width="10" height="65" fill="#22c55e"/>
+      <rect x="100" y="-30" width="10" height="30" fill="#22c55e"/>
+      <!-- pullback (down/small) -->
+      <rect x="140" y="-20" width="10" height="20" fill="#ef4444"/>
+      <rect x="180" y="-15" width="10" height="15" fill="#ef4444" opacity="0.8"/>
+      <rect x="220" y="-12" width="10" height="12" fill="#ef4444" opacity="0.7"/>
+      <!-- breakout -->
+      <rect x="260" y="-80" width="10" height="80" fill="#22c55e"/>
+      <rect x="300" y="-95" width="10" height="95" fill="#22c55e"/>
+      <rect x="340" y="-110" width="10" height="110" fill="#22c55e"/>
+    </g>
+    <!-- Volume bars -->
+    <g transform="translate(0,40)">
+      <rect x="20" y="0" width="10" height="30" fill="#60a5fa"/>
+      <rect x="60" y="0" width="10" height="34" fill="#60a5fa"/>
+      <rect x="100" y="0" width="10" height="28" fill="#60a5fa"/>
+      <!-- shrinking volume on pullback -->
+      <rect x="140" y="0" width="10" height="18" fill="#93c5fd"/>
+      <rect x="180" y="0" width="10" height="14" fill="#93c5fd"/>
+      <rect x="220" y="0" width="10" height="10" fill="#93c5fd"/>
+      <!-- breakout volume surge -->
+      <rect x="260" y="0" width="10" height="46" fill="#1d4ed8"/>
+      <rect x="300" y="0" width="10" height="56" fill="#1d4ed8"/>
+      <rect x="340" y="0" width="10" height="64" fill="#1d4ed8"/>
+    </g>
+    <!-- labels -->
+    <text class="note" x="140" y="-26">缩量回撤</text>
+    <text class="note" x="260" y="-86">放量突破</text>
+  </g>
+
+  <!-- Footer note -->
+  <text class="note" x="600" y="770" text-anchor="middle">仅供学习与交流，不构成投资建议</text>
+</svg>
+
+
+
+

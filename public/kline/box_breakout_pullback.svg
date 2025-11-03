@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="420" viewBox="0 0 720 420">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto">
+      <polygon points="0,0 8,4 0,8" fill="#333" />
+    </marker>
+  </defs>
+  <rect width="720" height="420" fill="#fff" />
+  <text x="20" y="34" font-size="20" font-family="Arial" fill="#111">箱体突破 → 回踩确认 → 再启</text>
+
+  <!-- 箱体上下轨 -->
+  <line x1="100" y1="150" x2="620" y2="150" stroke="#888" stroke-dasharray="6 4" />
+  <line x1="100" y1="280" x2="620" y2="280" stroke="#888" stroke-dasharray="6 4" />
+  <text x="625" y="155" font-size="12" fill="#666">上轨</text>
+  <text x="625" y="285" font-size="12" fill="#666">下轨</text>
+
+  <!-- 整理K线（简化条形） -->
+  <rect x="130" y="220" width="16" height="40" fill="#bbb" />
+  <rect x="155" y="200" width="16" height="50" fill="#bbb" />
+  <rect x="180" y="210" width="16" height="45" fill="#bbb" />
+  <rect x="205" y="230" width="16" height="30" fill="#bbb" />
+  <rect x="230" y="205" width="16" height="55" fill="#bbb" />
+
+  <!-- 突破长阳 -->
+  <line x1="300" y1="100" x2="300" y2="300" stroke="#444" stroke-width="3" />
+  <rect x="270" y="130" width="60" height="120" fill="#12b886" stroke="#0b8c66" stroke-width="2" />
+
+  <!-- 回踩小阴阳 -->
+  <rect x="350" y="155" width="20" height="40" fill="#e03131" />
+  <rect x="375" y="160" width="20" height="35" fill="#12b886" />
+
+  <!-- 再启长阳 -->
+  <line x1="430" y1="80" x2="430" y2="260" stroke="#444" stroke-width="3" />
+  <rect x="400" y="110" width="60" height="120" fill="#12b886" stroke="#0b8c66" stroke-width="2" />
+
+  <!-- 箭头与标注 -->
+  <line x1="300" y1="130" x2="360" y2="120" stroke="#333" marker-end="url(#arrow)" />
+  <text x="365" y="118" font-size="14" fill="#111">放量突破</text>
+  <line x1="360" y1="200" x2="385" y2="185" stroke="#333" marker-end="url(#arrow)" />
+  <text x="390" y="182" font-size="14" fill="#111">回踩不破上轨</text>
+  <line x1="430" y1="110" x2="480" y2="100" stroke="#333" marker-end="url(#arrow)" />
+  <text x="485" y="98" font-size="14" fill="#111">再启上攻</text>
+
+  <!-- 量能示意 -->
+  <rect x="270" y="350" width="60" height="30" fill="#666" />
+  <rect x="350" y="360" width="20" height="20" fill="#aaa" />
+  <rect x="400" y="345" width="60" height="35" fill="#666" />
+
+  <text x="20" y="405" font-size="12" fill="#666">策略：突破跟随或回踩确认买入；止损：实体跌回箱体内；目标：箱体高度等幅/上方阻力。</text>
+</svg>
+
+

@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="360" viewBox="0 0 640 360">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto">
+      <polygon points="0,0 8,4 0,8" fill="#333" />
+    </marker>
+  </defs>
+  <rect width="640" height="360" fill="#fff" />
+  <text x="20" y="34" font-size="20" font-family="Arial" fill="#111">启明星（三根结构，低位偏多）</text>
+
+  <!-- 第一根长阴 -->
+  <line x1="200" y1="60" x2="200" y2="300" stroke="#444" stroke-width="3" />
+  <rect x="170" y="120" width="60" height="120" fill="#e03131" stroke="#b02525" stroke-width="2" />
+
+  <!-- 中间星线（跳空） -->
+  <line x1="320" y1="150" x2="320" y2="250" stroke="#444" stroke-width="2" />
+  <rect x="312" y="195" width="16" height="10" fill="#999" stroke="#777" stroke-width="1.5" />
+
+  <!-- 第三根长阳 -->
+  <line x1="420" y1="80" x2="420" y2="280" stroke="#444" stroke-width="3" />
+  <rect x="390" y="140" width="60" height="110" fill="#12b886" stroke="#0b8c66" stroke-width="2" />
+
+  <!-- 标签与箭头 -->
+  <line x1="250" y1="110" x2="300" y2="105" stroke="#333" marker-end="url(#arrow)" />
+  <text x="200" y="100" font-size="14" fill="#111">第一根强势下跌</text>
+  <line x1="340" y1="185" x2="352" y2="195" stroke="#333" marker-end="url(#arrow)" />
+  <text x="350" y="180" font-size="14" fill="#111">星线（犹豫/分歧）</text>
+  <line x1="450" y1="130" x2="470" y2="125" stroke="#333" marker-end="url(#arrow)" />
+  <text x="470" y="120" font-size="14" fill="#111">多头反攻</text>
+
+  <text x="20" y="347" font-size="12" fill="#666">确认：第三根收盘上破第一根实体中部/高点，量能配合更佳。</text>
+</svg>
+
+

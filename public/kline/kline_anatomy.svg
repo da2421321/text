@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="360" viewBox="0 0 640 360">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto">
+      <polygon points="0,0 8,4 0,8" fill="#333" />
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="640" height="360" fill="#ffffff" />
+  <text x="20" y="34" font-size="20" font-family="Arial" fill="#111">K线结构（阳线示意）</text>
+
+  <!-- 价格轴虚线 -->
+  <line x1="120" y1="60" x2="600" y2="60" stroke="#ddd" stroke-dasharray="4 4" />
+  <line x1="120" y1="180" x2="600" y2="180" stroke="#ddd" stroke-dasharray="4 4" />
+  <line x1="120" y1="300" x2="600" y2="300" stroke="#ddd" stroke-dasharray="4 4" />
+  <text x="605" y="65" font-size="12" fill="#666">高位</text>
+  <text x="605" y="185" font-size="12" fill="#666">中位</text>
+  <text x="605" y="305" font-size="12" fill="#666">低位</text>
+
+  <!-- 上下影线 -->
+  <line x1="280" y1="80" x2="280" y2="280" stroke="#333" stroke-width="3" />
+  <!-- 实体（阳线：收盘高于开盘） -->
+  <rect x="250" y="150" width="60" height="80" fill="#12b886" stroke="#0b8c66" stroke-width="2" />
+
+  <!-- 标签：上影线 -->
+  <line x1="280" y1="90" x2="380" y2="90" stroke="#333" marker-end="url(#arrow)" />
+  <text x="390" y="95" font-size="14" fill="#111">上影线</text>
+  <!-- 标签：下影线 -->
+  <line x1="280" y1="270" x2="380" y2="270" stroke="#333" marker-end="url(#arrow)" />
+  <text x="390" y="275" font-size="14" fill="#111">下影线</text>
+  <!-- 标签：实体 -->
+  <line x1="315" y1="190" x2="430" y2="190" stroke="#333" marker-end="url(#arrow)" />
+  <text x="440" y="195" font-size="14" fill="#111">实体（多方主导）</text>
+
+  <!-- 标注开盘/收盘/最高/最低 -->
+  <circle cx="280" cy="150" r="4" fill="#12b886" />
+  <text x="210" y="150" font-size="12" fill="#111">开盘</text>
+  <circle cx="280" cy="230" r="4" fill="#12b886" />
+  <text x="210" y="232" font-size="12" fill="#111">收盘</text>
+  <circle cx="280" cy="80" r="4" fill="#333" />
+  <text x="210" y="84" font-size="12" fill="#111">最高</text>
+  <circle cx="280" cy="280" r="4" fill="#333" />
+  <text x="210" y="284" font-size="12" fill="#111">最低</text>
+
+  <text x="20" y="340" font-size="12" fill="#666">注：仅示意结构，非真实比例；颜色仅表示方向。</text>
+</svg>
+
+

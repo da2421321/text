@@ -1,0 +1,24 @@
+{
+  "name": "nuxtjs-tutorial",
+  "version": "1.0.0",
+  "description": "Nuxt.js框架完整教程",
+  "author": "Node.js教程",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "devDependencies": {
+    "@nuxt/devtools": "latest",
+    "nuxt": "^3.10.0"
+  },
+  "dependencies": {
+    "vue": "^3.4.0",
+    "vue-router": "^4.2.0",
+    "chart.js": "^4.4.0",
+    "vue-chartjs": "^5.2.0"
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "name": "nodejs-tutorial",
+  "version": "1.0.0",
+  "description": "Node.js从入门到精通完整教程",
+  "main": "index.js",
+  "scripts": {
+    "start": "node 基础篇/01-hello-world.js",
+    "dev": "nodemon 基础篇/01-hello-world.js",
+    "http": "node 进阶篇/07-http-server.js",
+    "express": "node 高级篇/11-express-basic.js",
+    "socket": "node 高级篇/13-socketio-server.js",
+    "test": "node 练习题/基础练习题.md"
+  },
+  "keywords": [
+    "nodejs",
+    "tutorial",
+    "javascript",
+    "backend",
+    "express",
+    "socketio"
+  ],
+  "author": "Node.js教程",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "socket.io": "^4.7.2",
+    "cors": "^2.8.5",
+    "helmet": "^7.0.0",
+    "express-rate-limit": "^6.7.0",
+    "express-session": "^1.17.3",
+    "cookie-parser": "^1.4.6",
+    "mongoose": "^7.0.3",
+    "mysql2": "^3.2.0",
+    "jsonwebtoken": "^9.0.0",
+    "bcrypt": "^5.1.0",
+    "dotenv": "^16.0.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}
+
