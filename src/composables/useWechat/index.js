@@ -1,5 +1,5 @@
-import { ref } from 'vue'
 import { getWechatConfig } from '@/api/wechat'
+import { ref } from 'vue'
 
 export function useWechat() {
   const isWechatReady = ref(false)
