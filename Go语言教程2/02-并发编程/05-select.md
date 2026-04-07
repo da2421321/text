@@ -138,6 +138,18 @@ func main() {
 }
 ```
 
+执行顺序说明（为什么是这个打印顺序）：
+
+1. `ch := make(chan string)` 是无缓冲通道，发送和接收必须“同时就绪”才能继续。
+2. `go RPCServer(ch)` 启动服务端后，会阻塞在 `data := <-ch`，等待客户端请求。
+3. `RPCClient(ch, "hi")` 先执行 `ch <- req`，把 `"hi"` 发给服务端；此时服务端接收到数据并打印：
+   - `server received: hi`
+4. 服务端接着执行 `ch <- "roger"` 回写响应；客户端在 `select` 的 `case data := <-ch` 中读到 `"roger"` 并返回。
+5. 最后 `main` 打印：
+   - `client receive: roger`
+
+结论：该示例中通常会先看到服务端日志，再看到客户端日志，根因是无缓冲通道的同步阻塞语义决定了这条调用链的先后关系。
+
 #### 3.2 案例二 使用通道晌应计时器的事件
 
 Go语言中的 time 包提供了计时器的封装。由于 Go 语言中的通道和 goroutine 的设计， 定时任务可以在 goroutine 中以同步方式完成，也可以通过在 goroutine 中异步回调完成。   
