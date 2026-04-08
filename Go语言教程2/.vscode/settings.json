@@ -3,7 +3,7 @@
   "editor.formatOnSave": true,
   "editor.formatOnType": true,
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true /*自动格式化js*/,
-    "source.fixAll.markdownlint": true /*自动格式化markdown*/
+    "source.fixAll.eslint": "explicit",
+    "source.fixAll.markdownlint": "explicit"
   }
 }

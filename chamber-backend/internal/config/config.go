@@ -27,13 +27,12 @@ type Config struct {
 	TokenExpiresIn int64
 }
 
-// Load 负责组装运行时配置。
-//
-// 处理顺序：
-// 1. 先尝试加载本地 .env，方便开发环境直接启动。
-// 2. 读取环境变量，并补齐开发环境默认值。
-// 3. 解析数值类型配置。
-// 4. 在启动前完成校验，避免服务带着错误配置运行。
+// Load 负责把运行时配置组装成 Config。
+// 处理顺序是：
+// 1. 先尝试加载本地 .env，方便本地开发直接启动。
+// 2. 读取环境变量并补齐默认值。
+// 3. 对数值配置做类型转换。
+// 4. 在启动阶段提前校验配置，避免服务带着错误参数跑起来。
 func Load() (Config, error) {
 	_ = godotenv.Load()
 
@@ -61,22 +60,12 @@ func Load() (Config, error) {
 	return cfg, nil
 }
 
-// Validate 用于判断当前配置是否可以安全启动服务。
-//
-// 这里分成两类校验：
-// 1. 必填项和数值是否合法。
-// 2. 生产环境下是否仍在使用开发默认值。
+// Validate 负责做启动前校验。
+// 这里校验的不是业务逻辑，而是“服务能否以当前配置安全启动”：
+// 1. 关键配置不能为空。
+// 2. 数值配置必须合法。
+// 3. 生产环境不允许继续使用弱默认值。
 func (c Config) Validate() error {
-	if err := c.validateRequired(); err != nil {
-		return err
-	}
-	if err := c.validateProductionOverrides(); err != nil {
-		return err
-	}
-	return nil
-}
-
-func (c Config) validateRequired() error {
 	if strings.TrimSpace(c.Port) == "" {
 		return fmt.Errorf("APP_PORT must not be empty")
 	}
@@ -95,29 +84,23 @@ func (c Config) validateRequired() error {
 	if c.TokenExpiresIn <= 0 {
 		return fmt.Errorf("TOKEN_EXPIRES_IN must be greater than 0")
 	}
-	return nil
-}
-
-func (c Config) validateProductionOverrides() error {
-	if !strings.EqualFold(c.AppEnv, "production") {
-		return nil
-	}
-	if c.MySQLDSN == defaultMySQLDSN {
-		return fmt.Errorf("MYSQL_DSN must be overridden in production")
-	}
-	if c.JWTSecret == defaultJWTSecret {
-		return fmt.Errorf("JWT_SECRET must be overridden in production")
-	}
-	if c.AdminPassword == defaultAdminPassword {
-		return fmt.Errorf("ADMIN_PASSWORD must be overridden in production")
+	if strings.EqualFold(c.AppEnv, "production") {
+		if c.MySQLDSN == defaultMySQLDSN {
+			return fmt.Errorf("MYSQL_DSN must be overridden in production")
+		}
+		if c.JWTSecret == defaultJWTSecret {
+			return fmt.Errorf("JWT_SECRET must be overridden in production")
+		}
+		if c.AdminPassword == defaultAdminPassword {
+			return fmt.Errorf("ADMIN_PASSWORD must be overridden in production")
+		}
 	}
 	return nil
 }
 
-// logWarnings 用于提示当前仍在使用开发默认值。
-//
-// 默认值可以降低本地启动门槛，但部署前必须替换，
-// 否则会带来明显的安全风险。
+// logWarnings 用于在开发环境打印风险提醒。
+// 开发时允许存在默认值，是为了降低启动门槛；
+// 但这些默认值一旦进入测试或生产环境，会明显增加安全风险，所以必须显式提示。
 func (c Config) logWarnings() {
 	if c.MySQLDSN == defaultMySQLDSN {
 		log.Println("warning: using default MySQL DSN; override MYSQL_DSN before deployment")
@@ -133,7 +116,8 @@ func (c Config) logWarnings() {
 	}
 }
 
-// getenv 读取字符串环境变量，并去掉首尾空格。
+// getenv 读取字符串环境变量，并自动去掉首尾空格。
+// 这样可以避免因为 .env 里多打了空格，导致配置表面看起来正确、实际运行却异常。
 func getenv(key, fallback string) string {
 	if v := strings.TrimSpace(os.Getenv(key)); v != "" {
 		return v
@@ -141,15 +125,17 @@ func getenv(key, fallback string) string {
 	return fallback
 }
 
-// getenvInt64 读取整数环境变量。
-//
-// 未设置时返回默认值；如果设置了但格式不合法，则直接报错。
+// getenvInt64 用于读取数值型环境变量。
+// 如果变量不存在就回退到默认值；
+// 如果变量存在但格式不合法，则直接返回错误，让服务在启动阶段失败。
 func getenvInt64(key string, fallback int64) (int64, error) {
 	value := strings.TrimSpace(os.Getenv(key))
 	if value == "" {
 		return fallback, nil
 	}
 
+	// strconv.ParseInt(value, 10, 64) 会把字符串按十进制解析成 int64。
+	// 例如 "7200" 会变成 int64(7200)。
 	parsed, err := strconv.ParseInt(value, 10, 64)
 	if err != nil {
 		return 0, fmt.Errorf("%s must be a valid integer: %w", key, err)
